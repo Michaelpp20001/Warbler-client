@@ -13,14 +13,19 @@
                 <Route exact path="/" render={props => <Homepage {...props} />} />
                 <Route exact path="/signin" render={props => {
                     return (
-                        <AuthForm buttonText="Log in" heading="Welcome Back" 
+                        <AuthForm 
+                        buttonText="Log in" 
+                        heading="Welcome Back" 
                         {...props}/>
                     )
                  }} 
                 />
                 <Route exact path="/signup" render={props => {
                     return (
-                        <AuthForm buttonText="Sign me up!" heading="Join Warbler today." 
+                        <AuthForm 
+                        signUp 
+                        buttonText="Sign me up!" 
+                        heading="Join Warbler today." 
                         {...props}/>
                     )
                 }}  

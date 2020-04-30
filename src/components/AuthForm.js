@@ -11,9 +11,15 @@ export default class AuthForm extends Component {
         };
     }
 
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
     render() {
         const {email, username, password, profileImageUrl} = this.state;
-        const {heading, buttonText} = this.props;
+        const {heading, buttonText, signUp} = this.props;
         return (
             <div>
                 <div className="row justify-content-md-center text-center">
@@ -30,7 +36,7 @@ export default class AuthForm extends Component {
                                 type="text"
                                 >
                                 </input>
-                            <label htmlFor="password">Email:</label>
+                            <label htmlFor="password">Password:</label>
                             <input
                                 className="form-control"
                                 id="password"
@@ -39,6 +45,30 @@ export default class AuthForm extends Component {
                                 type="password"
                                 >
                                 </input>
+                                {signUp && (
+                                    <div>
+                                        <label htmlFor="username">Username:</label>
+                                        <input
+                                            className="form-control"
+                                            id="username"
+                                            name="username"
+                                            onChange={this.handleChange}
+                                            value={username}
+                                            type="text"
+                                            >
+                                            </input>
+                                        <label htmlFor="image-url">Image URL:</label>
+                                        <input
+                                            className="form-control"
+                                            id="image-url"
+                                            name="profileImageUrl"
+                                            onChange={this.handleChange}
+                                            type="text"
+                                            value={profileImageUrl}
+                                            >
+                                            </input>
+                                    </div>
+                                )}
                         </form>
                     </div>
                 </div>
