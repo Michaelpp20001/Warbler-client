@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
+import Logo from "../images/warbler-logo.png";
 
 
 // using bootstrap for css
@@ -9,18 +10,20 @@ class Navbar extends Component {
         return (
         <nav className="navbar navbar-expand">
             <div className="container-fluid">
-                <Link to="/" className="navbar-brand">
-                    <img src="" alt="Warbler Home" />
-                </Link>
+                <div className="navbar-header">
+                    <Link to="/" className="navbar-brand">
+                        <img src={Logo} alt="Warbler Home" />
+                    </Link>
+                </div>
+                <ul className="nav navbar-nav navbar-right">
+                    <li>
+                        <Link to="/signup">Sign up</Link>
+                    </li>
+                    <li>
+                        <Link to="/signin">Sign in</Link>
+                    </li>
+                </ul>
             </div>
-            <ul className="nav navbar-nav navbar-right">
-                <li>
-                    <Link to="/signup">Sign up</Link>
-                </li>
-                <li>
-                    <Link to="/signin">Sign in</Link>
-                </li>
-            </ul>
         </nav>
         );
     }
