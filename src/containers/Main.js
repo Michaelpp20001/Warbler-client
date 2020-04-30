@@ -4,9 +4,11 @@
  import {connect} from "react-redux";
  import Homepage from "../components/Hompage";
  import AuthForm from "../components/AuthForm";
+ import {authUser} from "../store/actions/auth";
 
  // Switch component will allow for multiple routes and 404 logic
  const Main = props => {
+     const {authUser} = props;
      return (
         <div className="container">
             <Switch>
@@ -14,6 +16,7 @@
                 <Route exact path="/signin" render={props => {
                     return (
                         <AuthForm 
+                        onAuth={authUser}
                         buttonText="Log in" 
                         heading="Welcome Back" 
                         {...props}/>
@@ -24,6 +27,7 @@
                     return (
                         <AuthForm 
                         signUp 
+                        onAuth={authUser}
                         buttonText="Sign me up!" 
                         heading="Join Warbler today." 
                         {...props}/>
@@ -41,4 +45,4 @@
      };
  }
 
- export default withRouter(connect(mapStateToProps, null)(Main));
+ export default withRouter(connect(mapStateToProps, {authUser})(Main));
