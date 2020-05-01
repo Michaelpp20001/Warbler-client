@@ -1,6 +1,6 @@
 import {LOAD_MESSAGES, REMOVE_MESSAGES} from "../actionTypes";
 
-const message = (state = [], action) => {
+const messages = (state = [], action) => {
     switch (action.type) {
         case LOAD_MESSAGES:
             return [...action.messages]
@@ -8,3 +8,5 @@ const message = (state = [], action) => {
                 return state;
     }
 };
+
+export default messages;
