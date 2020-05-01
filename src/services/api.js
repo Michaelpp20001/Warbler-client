@@ -2,6 +2,14 @@ import axios from "axios"
 import errors from "../store/reducers/errors"
 import { useCallback } from "react"
 
+export function setTokenHeader(token) {
+    if (token) {
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    } else {
+        delete axios.defaults.headers.common["Authorization"];
+    }
+}
+
 // create our own promise(since apiCall will be asynchronous)
 // passes in a method to use on axios (hence no dot notation)
 
