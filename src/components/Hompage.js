@@ -17,9 +17,9 @@ const Homepage = ({currentUser}) => {
     }
     return (
         <div>
-            <h1>You made it!!Bitch</h1>
+            <h1>YOU MADE IT!!!</h1>
          </div>
-    )
+    );
 };
 
 export default Homepage;
