@@ -1,14 +1,13 @@
 import React from "react";
 import Moment from "react-moment";
 import {Link} from "react-router-dom";
-import DeafaultProfileImg from  "../images/default-profile-image.jpg";
+import DefaultProfileImg from  "../images/default-profile-image.jpg";
 
 const MessageItem = ({date, profileImageUrl, text, username, removeMessage, isCorrectUser}) => (
     <div>
         <li className="list-group-item">
-            <img 
+            <img src={profileImageUrl || DefaultProfileImg} 
                 className="timeline-image"
-                src={profileImageUrl || DeafaultProfileImg} 
                 alt={username}
                 height="100" 
                 width="100">
