@@ -7,6 +7,7 @@
  import {authUser} from "../store/actions/auth";
  import {removeError} from "../store/actions/errors";
  import withAuth from "../hocs/withAuth";
+ import MessageForm from "../containers/MessageForm";
 
  // Switch component will allow for multiple routes and 404 logic
  const Main = props => {
