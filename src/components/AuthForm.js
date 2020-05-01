@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import errors from "../store/reducers/errors";
 
 export default class AuthForm extends Component {
     constructor(props) {
@@ -27,13 +28,20 @@ export default class AuthForm extends Component {
 
     render() {
         const {email, username, password, profileImageUrl} = this.state;
-        const {heading, buttonText, signUp} = this.props;
+        const {heading, buttonText, signUp, errors, history, removeError} = this.props;
+
+        // listening to any change on a route, like switching between sihn up and log in
+        history.listen(() => {
+            removeError();
+        });
+
         return (
             <div>
                 <div className="row justify-content-md-center text-center">
                     <div className="col-md-6">
                         <form onSubmit={this.handleSubmit}>
                             <h2>{heading}</h2>
+                            {errors.message && (<div className="alert alert-danger">{errors.message}</div>)}
                             <label htmlFor="email">Email:</label>
                             <input
                                 className="form-control"
